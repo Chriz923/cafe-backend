@@ -6,7 +6,8 @@ const mysqlConnection = require("./database");
 const port = 3000;
 
 // Your github page origin has to be written EXACTLY like this! https://behu-kea.github.io
-const URL_FOR_FRONTEND = "chriz923.github.io";
+const URL_FOR_FRONTEND = "https://chriz923.github.io/cafe-frontend/";
+
 
 
 app.use(express.json()); //Used to parse JSON bodies
@@ -77,11 +78,6 @@ app.get('/favorites', (req, res) => {
         }
     );
 })
-
-// This is the correct way to handle user input
-
-
-// DO NOT MAKE YOUR CODE VULNERABLE TO SQL INJECTION!!!
 
 
 app.get("/", (req, res) => {
