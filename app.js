@@ -6,7 +6,7 @@ const mysqlConnection = require("./database");
 const port = 3000;
 
 // Your github page origin has to be written EXACTLY like this! https://behu-kea.github.io
-const URL_FOR_FRONTEND = "YOUR_GITHUB_PAGE_ORIGIN_HERE";
+const URL_FOR_FRONTEND = "chriz923.github.io";
 
 
 app.use(express.json()); //Used to parse JSON bodies
