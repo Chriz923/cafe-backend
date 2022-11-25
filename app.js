@@ -21,9 +21,51 @@ app.use(
         origin: cors_url
     })
 );
-
-app.get('/database', (req, res) => {
-    const query = "SELECT * FROM cafes;";
+//cafes
+app.get('/cafes', (req, res) => {
+    const query = "SELECT * FROM cafes INNER JOIN environment ON cafes.cafe_id = environment.cafe_id ;";
+    mysqlConnection.query(
+        query,
+        (err, results, fields) => {
+            if (!err) {
+                res.json(results);
+            } else {
+                console.log(err);
+            }
+        }
+    );
+})
+//Users
+app.get('/users', (req, res) => {
+    const query = "SELECT * FROM users;";
+    mysqlConnection.query(
+        query,
+        (err, results, fields) => {
+            if (!err) {
+                res.json(results);
+            } else {
+                console.log(err);
+            }
+        }
+    );
+})
+//environment
+app.get('/environment', (req, res) => {
+    const query = "SELECT * FROM environment;";
+    mysqlConnection.query(
+        query,
+        (err, results, fields) => {
+            if (!err) {
+                res.json(results);
+            } else {
+                console.log(err);
+            }
+        }
+    );
+})
+//favorites
+app.get('/favorites', (req, res) => {
+    const query = "SELECT * FROM favorites;";
     mysqlConnection.query(
         query,
         (err, results, fields) => {
@@ -37,21 +79,7 @@ app.get('/database', (req, res) => {
 })
 
 // This is the correct way to handle user input
-app.get('/database-user-input', (req, res) => {
-    const query = "SELECT * FROM wishlist.wish where description = ?;";
-    const description = `asd`;
-    mysqlConnection.query(
-        query,
-        [description],
-        (err, results, fields) => {
-            if (!err) {
-                res.json(results);
-            } else {
-                console.log(err);
-            }
-        }
-    );
-})
+
 
 // DO NOT MAKE YOUR CODE VULNERABLE TO SQL INJECTION!!!
 
